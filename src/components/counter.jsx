@@ -14,6 +14,10 @@ class Counter extends Component {
   //     fontWeight: 'bold'
   // };
 
+  handleIncrement() {
+    console.log('Increment Clicked');
+  }
+
   renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags!</p>;
 
@@ -38,6 +42,9 @@ class Counter extends Component {
             <li key={tag}> {tag} </li>
           ))}
         </ul> */}
+
+        <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button> 
+
 
         {this.renderTags()}
         {this.state.tags.length === 0 && 'Create a new tag!'}
