@@ -19,9 +19,15 @@ class Counter extends Component {
   //   this.handleIncrement = this.handleIncrement.bind(this);
   // }
 
-  handleIncrement = () => {
+  handleIncrement = product => {
     // console.log('Increment Clicked', this);
-    this.setState({ count: this.state.count + 1 })
+    console.log(product);
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  handleDecrement = product => {
+    console.log(product);
+    this.setState({ count: this.state.count - 1 });
   };
 
   renderTags() {
@@ -49,28 +55,47 @@ class Counter extends Component {
           ))}
         </ul> */}
 
-        <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button> 
+        {/* <button
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button> */}
+        <button
+          onClick={() => this.handleIncrement()}
+          className="btn btn-secondary btn-sm"
+        >
+          +
+        </button>
+        
         <span style={{ fontSize: 16 }} className={this.getBadgeClasses()}>
           {this.formatCount()}
         </span>
 
+        <button
+          onClick={() => this.handleDecrement()}
+          className="btn btn-secondary btn-sm"
+        >
+          -
+        </button>
+
         {this.renderTags()}
-        {this.state.tags.length === 0 && 'Create a new tag!'}
+        {this.state.tags.length === 0 && "Create a new tag!"}
       </React.Fragment>
     );
   }
 
-    getBadgeClasses() {
-      let classes = "badge m-2 badge-";
-      classes += this.state.count === 0 ? "warning" : "primary";
-      return classes;
-    }
+  getBadgeClasses() {
+    let classes = "badge m-2 badge-";
+    classes += this.state.count === 0 ? "warning" : "primary";
+    return classes;
+  }
 
-    formatCount() {
-      //return this.state.count==0 ? 'zero' : this.state.count; OR
-      const { count } = this.state;
-      return count === 0 ? "Zero" : count;
-    }
+  formatCount() {
+    //return this.state.count==0 ? 'zero' : this.state.count; OR
+    const { count } = this.state;
+    return count === 0 ? "Zero" : count;
+  }
 }
 
 export default Counter;
