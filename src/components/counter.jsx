@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class Counter extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if(prevProps,counter.value !== this.props.counter.value) {
+      // Ajax call and get new data from the server
+    }
+  }
   render() {
     console.log('Counter - Rendered');
 
