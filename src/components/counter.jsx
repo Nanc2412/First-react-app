@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 class Counter extends Component {
   render() {
+    console.log('Counter - Rendered');
+
     return (
       <div>
         <span className={this.getBadgeClasses()}>
